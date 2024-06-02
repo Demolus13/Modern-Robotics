@@ -68,6 +68,7 @@ eomg = 0.001
 ev = 0.0001
 
 # Call the function and display the results
+logging.info('Initial guess for the joint angles :\n %s \n', theta0)
 thetalist, thetalist_history, success = IKinBodyIterates(B, M, T, theta0, eomg, ev)
 print(thetalist, success)
 
