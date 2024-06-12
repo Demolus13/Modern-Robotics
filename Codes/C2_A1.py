@@ -4,7 +4,7 @@ from modern_robotics import *
 
 # Set up the logging configuration to save the results to a file
 import logging
-logging.basicConfig(filename='Configs/log.txt', level=logging.INFO, format='%(message)s')
+logging.basicConfig(filename='Configs/Assignment-1/log.txt', level=logging.INFO, format='%(message)s')
 
 def IKinBodyIterates(Blist, M, T, thetalist0, eomg, ev):
 
@@ -73,6 +73,6 @@ thetalist, thetalist_history, success = IKinBodyIterates(B, M, T, theta0, eomg, 
 print(thetalist, success)
 
 # Save the results to a file
-os.makedirs('Configs/', exist_ok=True)
-filepath = os.path.join('Configs/', 'iterates.csv')
+os.makedirs('Configs/Assignment-1/', exist_ok=True)
+filepath = os.path.join('Configs/Assignment-1/', 'iterates.csv')
 np.savetxt(filepath, thetalist_history, delimiter=',')
