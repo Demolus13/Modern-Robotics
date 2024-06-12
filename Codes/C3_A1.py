@@ -34,21 +34,30 @@ dt = 0.005
 intRes = 100
 
 # Simulation 1
-N1 = int(3/dt)
+N1 = int(3/dt) # 3 seconds
+
+# Initial configuration
 thetalist1 = np.array([0, 0, 0, 0, 0, 0])
 taumat1 = np.zeros((N1, 6))
 Ftipmat1 = np.zeros((N1, 6))
+
+# Apply Forward Dynamics Trajectory
 thetalist1, dthetalist1 = mr.ForwardDynamicsTrajectory(thetalist1, dthetalist, taumat1, g, Ftipmat1, Mlist, Glist, Slist, dt, intRes)
 print(f"Simulation 1: N1: {N1} Done\n")
 
 # Simulation 2
-N2 = int(5/dt)
+N2 = int(5/dt) # 5 seconds
+
+# Initial configuration
 thetalist2 = np.array([0, -1, 0, 0, 0, 0])
 taumat2 = np.zeros((N2, 6))
 Ftipmat2 = np.zeros((N2, 6))
+
+# Apply Forward Dynamics Trajectory
 thetalist2, dthetalist2 = mr.ForwardDynamicsTrajectory(thetalist2, dthetalist, taumat2, g, Ftipmat2, Mlist, Glist, Slist, dt, intRes)
 print(f"Simulation 2: N2: {N2} Done\n")
 
+# Save the data to CSV files
 os.makedirs('Configs/Assignment-2/', exist_ok=True)
 filepath = os.path.join('Configs/Assignment-2/', 'simulation1.csv')
 np.savetxt(filepath, thetalist1, delimiter=',')
